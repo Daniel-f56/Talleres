@@ -27,17 +27,55 @@
 
             var treinta= n4*0.3;
             alert(treinta);
-            alert(a);
+            
             var cien = treinta + a;
 
-            //El if esta mal
-            //if (cien < 2) {
-            //    alert("Tu perdiste la materia);
-            //} else if (cien > 2 && cien < 3) {
-            //    alert("Habilita")
-            //} 
-
+            
+            if (cien < 2) {
+              alert("Tu perdiste la materia");
+            } else if (cien >= 2 && cien < 3) {
+              alert("Habilita");
+            } else {
+              alert("Pasaste la materia");
+            }
             document.getElementById('def').value=cien;
+        }
+
+        function sumar(){
+          var s1 = parseFloat(document.getElementById('s1').value);
+          var s2 = parseFloat(document.getElementById('s2').value);
+
+          var solucion = s1 + s2;
+
+          document.getElementById('sss').value=solucion;
+        }
+
+        function restar(){
+          var r1 = parseFloat(document.getElementById('r1').value);
+          var r2 = parseFloat(document.getElementById('r2').value);
+          var r3 = parseFloat(document.getElementById('r3').value);
+
+          var solucion = r1 - r2 - r3;
+
+          document.getElementById('rrr').value = solucion;
+        }
+
+        function multiplicar(){
+          var m1 = parseFloat(document.getElementById('m1').value);
+          var m2 = parseFloat(document.getElementById('m2').value);
+
+          var solucion = m1*m2;
+
+          document.getElementById('mmm').value = solucion;
+        }
+
+        function dividir(){
+          var d1 = parseFloat(document.getElementById('d1').value);
+          var d2 = parseFloat(document.getElementById('d2').value);
+
+          var solucion = d1/d2;
+
+          document.getElementById('dd').value = solucion;
         }
     </script>
 
@@ -122,9 +160,10 @@
                       <div class="card card-body" style="width: 300px;">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingrese dos numeros para sumar:</font></font></label>
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Primer numero">
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Segundo numero">
-                            <button type="button" class="btn btn-outline-primary">Calcular</button>
+                            <input type="text" class="form-control my-2" id="s1" placeholder="Ingrese Primer numero">
+                            <input type="text" class="form-control my-2" id="s2" placeholder="Ingrese Segundo numero">
+                            <button type="button" class="btn btn-outline-primary" onclick="sumar()">Calcular</button>
+                            <input type="text" class="form-control my-2" id="sss" readonly>
                         </div>
                       </div>
                     </div>
@@ -141,10 +180,11 @@
                       <div class="card card-body" style="width: 300px;">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingrese las 3 edades:</font></font></label>
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Primera edad">
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Segunda edad">
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Tercera edad">
-                            <button type="button" class="btn btn-outline-primary">Calcular</button>
+                            <input type="text" class="form-control my-2" id="r1" placeholder="Ingrese Primera edad">
+                            <input type="text" class="form-control my-2" id="r2" placeholder="Ingrese Segunda edad">
+                            <input type="text" class="form-control my-2" id="r3" placeholder="Ingrese Tercera edad">
+                            <button type="button" class="btn btn-outline-primary" onclick="restar()">Calcular</button>
+                            <input type="text" class="form-control my-2" id="rrr" readonly>
                         </div>
                       </div>
                     </div>
@@ -161,9 +201,10 @@
                       <div class="card card-body" style="width: 300px;">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingrese dos numeros pares:</font></font></label>
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Primer numero">
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Segundo numero">
-                            <button type="button" class="btn btn-outline-primary">Calcular</button>
+                            <input type="text" class="form-control my-2" id="m1" placeholder="Ingrese Primer numero">
+                            <input type="text" class="form-control my-2" id="m2" placeholder="Ingrese Segundo numero">
+                            <button type="button" class="btn btn-outline-primary" onclick="multiplicar()">Calcular</button>
+                            <input type="text" class="form-control my-2" id="mmm" readonly>
                         </div>
                       </div>
                     </div>
@@ -180,9 +221,10 @@
                       <div class="card card-body" style="width: 300px;">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ingrese dos numeros para dividir:</font></font></label>
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Primer numero">
-                            <input type="number" class="form-control my-2" id="exampleFormControlInput1" placeholder="Ingrese Segundo numero">
-                            <button type="button" class="btn btn-outline-primary">Calcular</button>
+                            <input type="text" class="form-control my-2" id="d1" placeholder="Ingrese Primer numero">
+                            <input type="text" class="form-control my-2" id="d2" placeholder="Ingrese Segundo numero">
+                            <button type="button" class="btn btn-outline-primary" onclick="dividir()">Calcular</button>
+                            <input type="text" class="form-control my-2" id="dd" readonly>
                         </div>
                       </div>
                     </div>
