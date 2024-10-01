@@ -13,7 +13,7 @@
     function calcularEdad() {
     const birthdate = document.getElementById('birthdate').value;
 
-    alert(birthdate);
+    //alert(birthdate);
 
     if (birthdate) {
         const birthDate = new Date(birthdate);
@@ -28,15 +28,18 @@
 
         
         document.getElementById('ages').value = `Edad: ${age} años`;
+
+        if(age>=15){
+        document.getElementById('eventos').style.display="block";
+        }else{
+        document.getElementById('eventos').style.display="none";
+        }
+        
     } else {
         document.getElementById('ages').value = 'Por favor, selecciona una fecha de nacimiento.';
     }
 
-    if(age>=15){
-        document.getElementById('eventos').style.display="block";
-    }else{
-        document.getElementById('eventos').style.display="none";
-    }
+    
 }
 
 function precioevento() {
@@ -47,12 +50,46 @@ function precioevento() {
     } else {
         document.getElementById('precio').value=50000;
     }
+
+    var n = document.getElementById('precio').value;
+    document.getElementById('total').value = n;
+}
+
+
+let codigos = ["AAA", "KRE", "LOVE", "EVOL"];
+
+function codigoDescuento(){
+
+    const precio = parseFloat(document.getElementById('precio').value);
+    const c = document.getElementById('codigo').value;
+
+    const descuento = precio*0.1;
+
+
+    var codigoValido = false;
+
+    for(var i = 0; i<codigos.length; i++){
+        if(c == ""){
+            document.getElementById('total').value = precio;
+        } else if(c == codigos[i]){
+            document.getElementById('total').value = precio - descuento;
+            codigos[i] = "";
+            codigoValido = true;
+            break;
+        }
+    }
+
+    if (!codigoValido && c != "") {
+        alert("Su código de descuento no es válido o ya fue usado");
+        document.getElementById('total').value = precio; // Restauramos el precio
+    }
+
 }
 
 </script>
 
 <body>
-    <div class="container text-center my-4" >
+    <div class="container text-center my-4">
         <div class="row">
             <div class="col">
                 <h3>Inscripciones a los eventos</h3>
@@ -87,7 +124,7 @@ function precioevento() {
             <div class="col">
                 <div class="input-group mb-3 form-floating">
                     <input type="date" class="form-control" id="birthdate" name="birthdate" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" onblur="calcularEdad()">
-                    <label for="floatingInput">Seleccione su fecha de nacimiento</label>
+                    <label for="floatingInput">Seleccione su fecha de nacimiento (solo mayores de 15 años)</label>
                   </div>
             </div>
         </div>
@@ -99,7 +136,7 @@ function precioevento() {
 
         <div class="row">
             <div class="col">
-                <div class="accordion accordion-flush" id="eventos">
+                <div class="accordion accordion-flush" id="eventos" style="display: none;">
                     <div class="accordion-item">
                       <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -118,6 +155,19 @@ function precioevento() {
                             <input type="text" class="form-control my-2" id="precio" placeholder="precioevento" readonly>
                         </div>
 
+                        <div class="col"> <!--Para el codigo promocional --> 
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="codigo" onblur="codigoDescuento()">
+                                <label for="floatingInput">Codigo promocional (solo se puede usar una vez para el descuento)</label>
+                            </div>
+                        </div>
+
+                        <div class="col"><!--Para mostrar el total --> 
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="total" readonly>
+                                <label for="floatingInput">Total a pagar</label>
+                            </div>
+                        </div>
 
                       </div>
                     </div>
