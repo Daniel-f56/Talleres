@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de componentes (Hoy el profesor llega tarde)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="componentes.js"></script>
+</head>
+<body>
+    <!-- Crear 5 componentes que tengas las siguientes características:
+            1. Crear un componente tipo span. que tenga estilos para ser implementado en etiquetas que digan ayudas
+            2. Crear un componente web que personalice un botón que diga Notificaciones con icono
+            3. Crear un componente web que personalice una caja de texto para claves donde encripte antes de enviar los datos()
+            4. Crear un componente web que integre una caja de texto que diga cupón de descuento personalizado a un formulario web
+            5. Crear un HTML templetes para mostrar una sección de una pagina -->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col text-center">
+                <p>1. Componente personalizado de tipo span:</p>
+                <ayuda-span></ayuda-span>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div class="col text-center">
+                <p>2. Boton personalizado de notificaciones personalizado:</p>
+                <boton-notificaciones></boton-notificaciones>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div class="col text-center">
+                <p>3. Caja de texto personalizada para claves:</p>
+                <caja-personalizada></caja-personalizada>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col text-center">
+                <p>4. Cupon personalizado de descuento:</p>
+                <cupon-descuento></cupon-descuento>
+            </div>
+        </div>
+
+        <div class="row my-2"></div>
+            <div class="col text-center">
+                <p>5. HTML template:</p>
+                <!--  -->
+                <template id="seccion-template"> 
+                    <div class="card"> 
+                        <div class="card-header"> Título de la Sección </div> 
+                        <div class="card-body"> 
+                            <h5 class="card-title">Subtítulo</h5> 
+                            <p class="card-text">Este es el contenido de la sección.</p> 
+                            <a href="#" class="btn btn-primary">Leer más</a> 
+                        </div> 
+                    </div> 
+                </template>
+
+                <div id="contenedor-secciones" class="container mt-4"> 
+
+                </div>
+
+                <script> 
+                    document.addEventListener('DOMContentLoaded', function() { 
+                    // Obtener el template y el contenedor 
+                    const template = document.getElementById('seccion-template'); 
+                    const contenedor = document.getElementById('contenedor-secciones'); 
+                    // Clonar el contenido del template const 
+                    seccionClone = document.importNode(template.content, true); 
+                    // Agregar el contenido clonado al contenedor 
+                    contenedor.appendChild(seccionClone); 
+                    }); 
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
