@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .titulo {
+    font-size: 2em; /* Tamaño grande para el título principal */
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .subtitulo {
+    font-size: 1.5em; /* Tamaño intermedio para el subtítulo */
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  #texto {
+    font-size: 16px; /* Tamaño inicial del párrafo */
+    color: #666;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+  }
